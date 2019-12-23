@@ -1,67 +1,58 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        web-matters-site
-      </h1>
-      <h2 class="subtitle">
-        Statically generated Nuxt app for Web Matters website
-      </h2>
-      <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green">
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <hero />
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Services</h1>
+        <div class="columns">
+          <div
+            v-for="product in products"
+            :key="product._id"
+            class="column is-one-quarter"
+          >
+            <product-card :product="product" />
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <h1 class="title">Featured Articles</h1>
+        <div class="columns">
+          <div class="column is-one-quarter">
+            <blog-card />
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import { mapState } from 'vuex'
+import Hero from '@/components/shared/Hero.vue'
+import ProductCard from '@/components/ProductCard.vue'
+import BlogCard from '@/components/BlogCard.vue'
 
 export default {
   components: {
-    Logo
+    Hero,
+    ProductCard,
+    BlogCard
+  },
+  computed: {
+    ...mapState({
+      products: state => state.product.items
+    })
+  },
+  async fetch({ store }) {
+    await store.dispatch('product/fetchProducts')
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
+<style scoped lang="scss">
+// Home page
 .links {
   padding-top: 15px;
 }
