@@ -7,7 +7,7 @@
           <p class="subtitle has-text-grey">Please register to proceed.</p>
           <div class="box">
             <figure class="avatar">
-              <img src="https://via.placeholder.com/300" />
+              <img src="~/assets/images/wm-logo.png" />
             </figure>
             <form>
               <div class="field">

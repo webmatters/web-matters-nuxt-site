@@ -27,16 +27,16 @@
           Home
         </nuxt-link>
         <nuxt-link to="#" class="navbar-item">
-          Courses
+          Services
         </nuxt-link>
         <nuxt-link to="#" class="navbar-item">
-          Blogs
+          Blog
         </nuxt-link>
         <nuxt-link to="#" class="navbar-item">
           About
         </nuxt-link>
         <nuxt-link to="#" class="navbar-item">
-          Cv
+          Contact
         </nuxt-link>
       </div>
 
@@ -44,7 +44,7 @@
         <div class="navbar-item">
           <div class="buttons">
             <!-- If Authenticated -->
-            <template v-if="true">
+            <template v-if="false">
               <figure class="image avatar is-48x48 m-r-sm">
                 <img
                   class="is-rounded"
