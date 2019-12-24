@@ -56,6 +56,7 @@
               <button
                 @click.prevent="login"
                 :disabled="$v.form.$invalid"
+                type="button"
                 class="button is-block is-info is-large is-fullwidth"
               >
                 Login
