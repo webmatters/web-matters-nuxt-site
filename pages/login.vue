@@ -97,9 +97,24 @@ export default {
       }
     }
   },
+  computed: {
+    isFormValid() {
+      return !this.$v.$invalid
+    }
+  },
   methods: {
     login() {
       this.$v.form.$touch()
+      if (this.isFormValid) {
+        this.$store
+          .dispatch('auth/login', this.form)
+          .then(() => this.$router.push('/'))
+          .catch(() =>
+            this.$toasted.error('Email or password is incorrect.', {
+              duration: 3000
+            })
+          )
+      }
     }
   }
 }
