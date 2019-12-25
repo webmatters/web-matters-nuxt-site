@@ -2,7 +2,9 @@
   <nav class="navbar is-active" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
-        <h1 class="brand-title">Web Matters</h1>
+        <h1 class="brand-title is-uppercase has-text-weight-semibold">
+          Web Matters
+        </h1>
       </nuxt-link>
       <!-- Adds click to open -->
       <!-- Adds active class -->
@@ -104,7 +106,6 @@ export default {
 <style lang="scss" scoped>
 .brand-title {
   font-size: 35px;
-  font-weight: bold;
 }
 .navbar-brand {
   padding-right: 30px;

@@ -56,5 +56,10 @@ export const actions = {
         commit('setAuthUser', null)
         return Promise.reject(error)
       })
+  },
+  register(context, registerData) {
+    return this.$axios
+      .$post('/api/v1/users/register', registerData)
+      .catch(error => Promise.reject(error))
   }
 }

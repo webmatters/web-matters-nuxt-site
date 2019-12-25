@@ -185,6 +185,7 @@ import {
 import { supportedFileType } from '@/helpers/validators'
 
 export default {
+  middleware: 'guest',
   data() {
     return {
       form: {
@@ -225,9 +226,27 @@ export default {
       }
     }
   },
+  computed: {
+    isFormValid() {
+      return !this.$v.form.$invalid
+    }
+  },
   methods: {
     register() {
       this.$v.form.$touch()
+      if (this.isFormValid) {
+        this.$store
+          .dispatch('auth/register', this.form)
+          .then(() => this.$router.push('/login'))
+          .catch(() =>
+            this.$toasted.error(
+              'There was a problem. Please try to register again.',
+              {
+                duration: 3000
+              }
+            )
+          )
+      }
     }
   }
 }
