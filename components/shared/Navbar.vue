@@ -44,25 +44,20 @@
         <div class="navbar-item">
           <div class="buttons">
             <!-- If Authenticated -->
-            <template v-if="false">
+            <template v-if="isAuth">
               <figure class="image avatar is-48x48 m-r-sm">
-                <img
-                  class="is-rounded"
-                  src="https://upload.wikimedia.org/wikipedia/commons/6/67/User_Avatar.png"
-                />
+                <img :src="user.avatar" class="is-rounded" />
               </figure>
-              <div class="m-r-sm m-b-sm">
-                Welcome User!
-              </div>
+              <div class="m-r-sm m-b-sm">Welcome {{ user.name }}!</div>
               <!-- If Admin -->
               <button
-                v-if="true"
+                v-if="isAdmin"
                 @click="() => {}"
                 class="button is-link is-outlined"
               >
                 Client
               </button>
-              <a @click="() => {}" class="button is-primary">
+              <a @click="logout" class="button is-primary">
                 Log out
               </a>
             </template>
@@ -80,6 +75,31 @@
     </div>
   </nav>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+export default {
+  computed: {
+    ...mapGetters({
+      user: 'auth/authUser',
+      isAuth: 'auth/isAuthenticated',
+      isAdmin: 'auth/isAdmin'
+    })
+  },
+  methods: {
+    logout() {
+      this.$store
+        .dispatch('auth/logout')
+        .then(() => this.$router.push('/login'))
+        .catch(() =>
+          this.$toasted.error('Logout failed.', {
+            duration: 3000
+          })
+        )
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .brand-title {
