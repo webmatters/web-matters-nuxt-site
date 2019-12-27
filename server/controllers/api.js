@@ -1,18 +1,17 @@
-const ProductHero = require('../models/product-hero');
-const passport = require('passport');
+const passport = require('passport')
+const ProjectHero = require('../models/project-hero')
 
-exports.getPageData = function (req, res, next) {
+exports.getPageData = function(req, res, next) {
   const data = {}
-  ProductHero.findOne()
-            .sort({createdAt: -1})
-            .populate('product')
-            .exec(function(errors, productHero) {
+  ProjectHero.findOne()
+    .sort({ createdAt: -1 })
+    .populate('project')
+    .exec(function(errors, projectHero) {
+      if (errors) {
+        return res.status(422).send(errors)
+      }
 
-    if (errors) {
-      return res.status(422).send(errors);
-    }
-
-    data.productHero = productHero;
-    return res.json(data);
-  })
-};
+      data.projectHero = projectHero
+      return res.json(data)
+    })
+}

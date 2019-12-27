@@ -8,11 +8,11 @@ const db = require('../db')
 const keys = require('../keys')
 
 const usersRoutes = require('./user')
-const productRoutes = require('./product')
+const projectRoutes = require('./project')
 const categoryRoutes = require('./category')
 const blogRoutes = require('./blog')
 const apiRoutes = require('./api')
-const productHeroRoutes = require('./product-hero')
+const projectHeroRoutes = require('./project-hero')
 
 require('../services/passport')
 
@@ -34,7 +34,7 @@ const sess = {
   store
 }
 
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'projection') {
   app.set('trust proxy', 1)
   sess.cookie.secure = true
   sess.cookie.httpOnly = true
@@ -47,9 +47,9 @@ app.use(passport.initialize())
 app.use(passport.session())
 
 app.use('', apiRoutes)
-app.use('/product-heroes', productHeroRoutes)
+app.use('/project-heroes', projectHeroRoutes)
 app.use('/users', usersRoutes)
-app.use('/products', productRoutes)
+app.use('/projects', projectRoutes)
 app.use('/categories', categoryRoutes)
 app.use('/blogs', blogRoutes)
 

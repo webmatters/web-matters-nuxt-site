@@ -4,9 +4,9 @@ const MongoDBStore = require('connect-mongodb-session')(session)
 const keys = require('../keys')
 
 require('../models/user')
-require('../models/product')
+require('../models/project')
 require('../models/category')
-require('../models/product-hero')
+require('../models/project-hero')
 require('../models/blog')
 
 exports.initSessionStore = function() {

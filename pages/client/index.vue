@@ -1,20 +1,20 @@
 <template>
-  <div class="instructor-page">
+  <div class="client-page">
     <div class="centered">
       <div class="columns">
-        <!-- Go to /instructor/courses -->
+        <!-- Go to /client/courses -->
         <div @click="() => {}" class="box">
           <div>
             Courses
           </div>
         </div>
-        <!-- Go to /instructor/blogs -->
+        <!-- Go to /client/blogs -->
         <div @click="() => {}" class="box">
           <div>
             Blogs
           </div>
         </div>
-        <!-- Go to /instructor/heroes -->
+        <!-- Go to /client/heroes -->
         <div @click="() => {}" class="box">
           <div>
             Heroes
@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.instructor-page {
+.client-page {
   .centered {
     margin-top: 100px;
     display: flex;

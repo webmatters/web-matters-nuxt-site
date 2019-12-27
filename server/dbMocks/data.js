@@ -1,14 +1,14 @@
 const moment = require('moment')
 const mongoose = require('mongoose')
 const User = require('../models/user')
-const Product = require('../models/product')
+const Project = require('../models/project')
 const Category = require('../models/category')
 
 const user1Id = mongoose.Types.ObjectId()
 const user2Id = mongoose.Types.ObjectId()
 const user3Id = mongoose.Types.ObjectId()
 
-const product1Id = mongoose.Types.ObjectId()
+const project1Id = mongoose.Types.ObjectId()
 
 const category1Id = mongoose.Types.ObjectId()
 const category2Id = mongoose.Types.ObjectId()
@@ -29,7 +29,7 @@ module.exports = {
         username: 'Rhonyn99',
         password: 'testtest',
         role: 'admin',
-        products: [product1Id]
+        projects: [project1Id]
       },
       {
         _id: user2Id,
@@ -70,11 +70,11 @@ module.exports = {
       }
     ]
   },
-  products: {
-    model: Product,
+  projects: {
+    model: Project,
     items: [
       {
-        _id: product1Id,
+        _id: project1Id,
         slug: 'Dart-and-Flutter-From-Zero-to-Hero-Practical-Dev-Bootcamp',
         title: 'Dart and Flutter From Zero to Hero - Practical Dev Bootcamp',
         subtitle:
@@ -108,7 +108,7 @@ module.exports = {
         ],
         promoVideoLink:
           'https://a2.udemycdn.com/2019-06-16_01-03-38-b4b3369ea5ef3ab87a5c44952d66fbda/WebHD_720p.mp4?nva=20190620043055&token=0d53de33a501d22e72d76',
-        productLink:
+        projectLink:
           'https://www.udemy.com/dart-and-flutter-from-zero-to-hero-practical-dev-bootcamp',
         price: 179.99,
         discountedPrice: 9.99,

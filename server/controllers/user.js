@@ -1,15 +1,15 @@
-const User = require('../models/user');
-const passport = require('passport');
+const passport = require('passport')
+const User = require('../models/user')
 
-exports.getCurrentUser = function (req, res, next) {
-  const user = req.user;
+exports.getCurrentUser = function(req, res, next) {
+  const user = req.user
 
-  if(!user) {
-    return res.sendStatus(422);
+  if (!user) {
+    return res.sendStatus(422)
   }
 
-  return res.json(user);
-};
+  return res.json(user)
+}
 
 exports.register = function(req, res) {
   const registerData = req.body
@@ -41,18 +41,18 @@ exports.register = function(req, res) {
     })
   }
 
-  const user = new User(registerData);
+  const user = new User(registerData)
 
   return user.save((errors, savedUser) => {
     if (errors) {
-      return res.status(422).json({errors})
+      return res.status(422).json({ errors })
     }
 
     return res.json(savedUser)
   })
 }
 
-exports.login = function (req, res, next) {
+exports.login = function(req, res, next) {
   const { email, password } = req.body
 
   if (!email) {
@@ -79,22 +79,24 @@ exports.login = function (req, res, next) {
     }
 
     if (passportUser) {
-      req.login(passportUser, function (err) {
-        if (err) { next(err); }
+      req.login(passportUser, function(err) {
+        if (err) {
+          next(err)
+        }
 
         return res.json(passportUser)
-      });
+      })
     } else {
-      return res.status(422).send({errors: {
-        'message': 'Invalid password or email'
-      }})
+      return res.status(422).send({
+        errors: {
+          message: 'Invalid password or email'
+        }
+      })
     }
-
   })(req, res, next)
 }
 
-exports.logout = function (req, res) {
+exports.logout = function(req, res) {
   req.logout()
-  return res.json({status: 'Session destroyed!'})
+  return res.json({ status: 'Session destroyed!' })
 }
-

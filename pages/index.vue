@@ -6,11 +6,11 @@
         <h1 class="title">Projects</h1>
         <div class="columns">
           <div
-            v-for="product in products"
-            :key="product._id"
+            v-for="project in projects"
+            :key="project._id"
             class="column is-one-quarter"
           >
-            <product-card :product="product" />
+            <project-card :project="project" />
           </div>
         </div>
       </div>
@@ -31,7 +31,7 @@
 <script>
 import { mapState } from 'vuex'
 import Hero from '@/components/shared/Hero.vue'
-import ProductCard from '@/components/ProductCard.vue'
+import ProjectCard from '@/components/ProjectCard.vue'
 import BlogCard from '@/components/BlogCard.vue'
 
 export default {
@@ -40,16 +40,16 @@ export default {
   },
   components: {
     Hero,
-    ProductCard,
+    ProjectCard,
     BlogCard
   },
   computed: {
     ...mapState({
-      products: state => state.product.items
+      projects: state => state.project.items
     })
   },
   async fetch({ store }) {
-    await store.dispatch('product/fetchProducts')
+    await store.dispatch('project/fetchProjects')
   }
 }
 </script>
