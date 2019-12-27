@@ -21,7 +21,11 @@
           <div class="column is-8 is-offset-2">
             <h1 class="projects-page-title">Your Projects</h1>
             <!-- Iterate Projects -->
-            <div class="tile is-ancestor">
+            <div
+              v-for="project in projects"
+              :key="project._id"
+              class="tile is-ancestor"
+            >
               <div class="tile is-parent is-12">
                 <!-- Navigate to project manage page -->
                 <nuxt-link
@@ -36,30 +40,21 @@
                   <div class="columns">
                     <div class="column is-narrow">
                       <figure class="image is-4by2 is-128x128">
-                        <img
-                          :src="
-                            'https://i.udemycdn.com/project/750x422/2381802_d90c_3.jpg'
-                          "
-                        />
+                        <img :src="project.image" />
                       </figure>
                     </div>
                     <div class="column">
                       <p class="title">
-                        Dart and Flutter From Zero to Hero - Practical Dev
-                        Bootcamp
+                        {{ project.title }}
                       </p>
                       <p class="subtitle">
-                        Build real mobile Application for Android and iOS. Learn
-                        Dart Framework and discover amazing features of Flutter.
+                        {{ project.subtitle }}
                       </p>
-                      <span :class="'is-success'" class="tag">Published</span>
+                      <span :class="'is-success'" class="tag">{{
+                        project.status
+                      }}</span>
                     </div>
-                    <div class="column is-narrow flex-centered">
-                      <div class="price-title">
-                        <!-- {{project.price || 0}} $ -->
-                        178.99 $
-                      </div>
-                    </div>
+                    <div class="column is-narrow flex-centered"></div>
                   </div>
                 </nuxt-link>
               </div>
