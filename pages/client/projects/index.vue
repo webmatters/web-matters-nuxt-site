@@ -78,6 +78,14 @@ export default {
   layout: 'client',
   components: {
     ClientHeader
+  },
+  computed: {
+    projects() {
+      return this.$store.state.client.project.items
+    }
+  },
+  fetch({ store }) {
+    return store.dispatch('client/project/fetchClientProjects')
   }
 }
 </script>

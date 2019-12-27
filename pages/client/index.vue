@@ -30,7 +30,6 @@
 import ClientHeader from '@/components/shared/ClientHeader.vue'
 
 export default {
-  middleware: 'admin',
   layout: 'client',
   components: {
     ClientHeader
