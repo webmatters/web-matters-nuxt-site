@@ -12,7 +12,7 @@ require('../models/blog')
 exports.initSessionStore = function() {
   const store = new MongoDBStore({
     uri: keys.DB_URI,
-    collection: 'eincodeSessions'
+    collection: 'sessions'
   })
 
   store.on('error', error => console.log(error))
