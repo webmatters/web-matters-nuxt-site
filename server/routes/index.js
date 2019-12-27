@@ -34,7 +34,7 @@ const sess = {
   store
 }
 
-if (process.env.NODE_ENV === 'projection') {
+if (process.env.NODE_ENV === 'production') {
   app.set('trust proxy', 1)
   sess.cookie.secure = true
   sess.cookie.httpOnly = true
