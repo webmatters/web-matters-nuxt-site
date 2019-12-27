@@ -3,7 +3,10 @@
     <client-header title="">
       <template #actionMenu>
         <div class="full-page-takeover-header-button">
-          <nuxt-link to="#" class="button is-medium is-light">
+          <nuxt-link
+            to="/client/project/create"
+            class="button is-medium is-light"
+          >
             New Project
           </nuxt-link>
           <nuxt-link
