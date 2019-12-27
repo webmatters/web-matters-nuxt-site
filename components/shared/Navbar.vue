@@ -28,16 +28,16 @@
         <nuxt-link to="/" class="navbar-item">
           Home
         </nuxt-link>
-        <nuxt-link to="#" class="navbar-item">
+        <nuxt-link to="/instructor" class="navbar-item">
           Services
         </nuxt-link>
         <nuxt-link to="#" class="navbar-item">
           Blog
         </nuxt-link>
-        <nuxt-link to="#" class="navbar-item">
+        <nuxt-link to="about" class="navbar-item">
           About
         </nuxt-link>
-        <nuxt-link to="#" class="navbar-item">
+        <nuxt-link to="/contact" class="navbar-item">
           Contact
         </nuxt-link>
       </div>

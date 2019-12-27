@@ -35,6 +35,9 @@ import ProductCard from '@/components/ProductCard.vue'
 import BlogCard from '@/components/BlogCard.vue'
 
 export default {
+  head: {
+    title: 'Web Matters'
+  },
   components: {
     Hero,
     ProductCard,
