@@ -2,7 +2,9 @@
   <nav class="navbar is-active" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
-        <h1 class="brand-title is-uppercase has-text-weight-semibold">
+        <h1
+          class="brand-title is-uppercase has-text-weight-semibold has-text-grey-dark"
+        >
           Web Matters
         </h1>
       </nuxt-link>
@@ -54,7 +56,7 @@
               <!-- If Admin -->
               <button
                 v-if="isAdmin"
-                @click="() => {}"
+                @click="() => $router.push('/client/projects')"
                 class="button is-link is-outlined"
               >
                 Client

@@ -1,11 +1,12 @@
 <template>
   <div class="client-page">
+    <client-header title="" exit-link="/" />
     <div class="centered">
       <div class="columns">
-        <!-- Go to /client/courses -->
-        <div @click="() => {}" class="box">
+        <!-- Go to /client/projects -->
+        <div @click="() => $router.push('/client/projects')" class="box">
           <div>
-            Courses
+            Projects
           </div>
         </div>
         <!-- Go to /client/blogs -->
@@ -26,8 +27,14 @@
 </template>
 
 <script>
+import ClientHeader from '@/components/shared/ClientHeader.vue'
+
 export default {
-  middleware: 'admin'
+  middleware: 'admin',
+  layout: 'client',
+  components: {
+    ClientHeader
+  }
 }
 </script>
 
