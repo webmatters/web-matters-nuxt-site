@@ -1,5 +1,5 @@
 <template>
-  <section class="hero is-success is-fullheight">
+  <section class="hero is-success ">
     <div class="hero-body">
       <div class="container has-text-centered">
         <div class="column is-4 is-offset-4">
@@ -15,10 +15,10 @@
                 <div class="control">
                   <input
                     v-model="form.username"
-                    @blur="$v.form.username.$touch()"
                     class="input is-large"
                     type="text"
                     placeholder="Username"
+                    @blur="$v.form.username.$touch()"
                   />
                   <div v-if="$v.form.username.$error" class="form-error">
                     <span
@@ -39,10 +39,10 @@
                 <div class="control">
                   <input
                     v-model="form.name"
-                    @blur="$v.form.name.$touch()"
                     class="input is-large"
                     type="text"
                     placeholder="Name"
+                    @blur="$v.form.name.$touch()"
                   />
                   <div v-if="$v.form.name.$error" class="form-error">
                     <span v-if="!$v.form.name.required" class="help is-danger"
@@ -59,10 +59,10 @@
                 <div class="control">
                   <input
                     v-model="form.email"
-                    @blur="$v.form.email.$touch()"
                     class="input is-large"
                     type="email"
                     placeholder="Your Email"
+                    @blur="$v.form.email.$touch()"
                   />
                   <div v-if="$v.form.email.$error" class="form-error">
                     <span v-if="!$v.form.email.required" class="help is-danger"
@@ -81,11 +81,11 @@
                 <div class="control">
                   <input
                     v-model="form.avatar"
-                    @blur="$v.form.avatar.$touch()"
                     class="input is-large"
                     type="text"
                     placeholder="Avatar"
                     autocomplete=""
+                    @blur="$v.form.avatar.$touch()"
                   />
                   <div v-if="$v.form.avatar.$error" class="form-error">
                     <span v-if="!$v.form.avatar.url" class="help is-danger"
@@ -104,11 +104,11 @@
                 <div class="control">
                   <input
                     v-model="form.password"
-                    @blur="$v.form.password.$touch()"
                     class="input is-large"
                     type="password"
                     placeholder="Your Password"
                     autocomplete="new-password"
+                    @blur="$v.form.password.$touch()"
                   />
                   <div v-if="$v.form.password.$error" class="form-error">
                     <span
@@ -129,11 +129,11 @@
                 <div class="control">
                   <input
                     v-model="form.passwordConfirmation"
-                    @blur="$v.form.passwordConfirmation.$touch()"
                     class="input is-large"
                     type="password"
                     placeholder="Password Confirmation"
                     autocomplete="off"
+                    @blur="$v.form.passwordConfirmation.$touch()"
                   />
                   <div
                     v-if="$v.form.passwordConfirmation.$error"
@@ -155,10 +155,10 @@
               </div>
               <!-- Register Button -->
               <button
-                @click.prevent="register"
                 :disabled="$v.form.$invalid"
                 type="submit"
                 class="button is-block is-info is-large is-fullwidth"
+                @click.prevent="register"
               >
                 Register
               </button>

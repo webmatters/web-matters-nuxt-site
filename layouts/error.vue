@@ -3,8 +3,8 @@
     <ErrorView
       :title="'The page you are trying to access does not exist.'"
       :status="'404'"
-      :navigateToPage="'/'"
-      :navigateToText="'Navigate to Home Page'"
+      :navigate-to-page="'/'"
+      :navigate-to-text="'Navigate to Home Page'"
     />
   </div>
 </template>

@@ -35,21 +35,21 @@ import ProjectCard from '@/components/ProjectCard.vue'
 import BlogCard from '@/components/BlogCard.vue'
 
 export default {
-  head: {
-    title: 'Web Matters'
-  },
   components: {
     Hero,
     ProjectCard,
     BlogCard
+  },
+  async fetch({ store }) {
+    await store.dispatch('project/fetchProjects')
   },
   computed: {
     ...mapState({
       projects: state => state.project.items
     })
   },
-  async fetch({ store }) {
-    await store.dispatch('project/fetchProjects')
+  head: {
+    title: 'Web Matters'
   }
 }
 </script>

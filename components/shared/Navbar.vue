@@ -11,12 +11,12 @@
       <!-- Adds click to open -->
       <!-- Adds active class -->
       <a
-        @click="() => {}"
         role="button"
         class="navbar-burger burger"
         aria-label="menu"
         aria-expanded="false"
         data-target="navbarBasicExample"
+        @click="() => {}"
       >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -56,12 +56,12 @@
               <!-- If Admin -->
               <button
                 v-if="isAdmin"
-                @click="() => $router.push('/client/projects')"
                 class="button is-link is-outlined"
+                @click="() => $router.push('/client/projects')"
               >
                 Client
               </button>
-              <a @click="logout" class="button is-primary">
+              <a class="button is-primary" @click="logout">
                 Log out
               </a>
             </template>

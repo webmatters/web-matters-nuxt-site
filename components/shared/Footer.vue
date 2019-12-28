@@ -11,6 +11,7 @@
             >github.com/WebMatters</a
           >
         </p>
+        <div>©{{ new Date().getFullYear() }}</div>
       </div>
     </div>
   </div>

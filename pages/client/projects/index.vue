@@ -77,13 +77,13 @@ export default {
   components: {
     ClientHeader
   },
+  fetch({ store }) {
+    return store.dispatch('client/project/fetchClientProjects')
+  },
   computed: {
     projects() {
       return this.$store.state.client.project.items
     }
-  },
-  fetch({ store }) {
-    return store.dispatch('client/project/fetchClientProjects')
   }
 }
 </script>

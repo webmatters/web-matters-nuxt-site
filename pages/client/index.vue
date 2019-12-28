@@ -4,19 +4,19 @@
     <div class="centered">
       <div class="columns">
         <!-- Go to /client/projects -->
-        <div @click="() => $router.push('/client/projects')" class="box">
+        <div class="box" @click="() => $router.push('/client/projects')">
           <div>
             Projects
           </div>
         </div>
         <!-- Go to /client/blogs -->
-        <div @click="() => {}" class="box">
+        <div class="box" @click="() => {}">
           <div>
             Blogs
           </div>
         </div>
         <!-- Go to /client/heroes -->
-        <div @click="() => {}" class="box">
+        <div class="box" @click="() => {}">
           <div>
             Heroes
           </div>

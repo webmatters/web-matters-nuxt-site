@@ -10,28 +10,14 @@
       <div class="project-create-form-group">
         <div class="project-create-form-field">
           <div class="select is-large">
-            <select>
+            <select v-model="form.category" @change="emitFormData">
               <option value="default">Select Category</option>
-              <option>
-                Mobile App
-              </option>
-              <option>
-                Web App
-              </option>
-              <option>
-                Static Website
-              </option>
-              <option>
-                Design
-              </option>
-              <option>
-                Data Analysis
-              </option>
-              <option>
-                Marketing
-              </option>
-              <option>
-                Strategy
+              <option
+                v-for="category in categories"
+                :key="category._id"
+                :value="category._id"
+              >
+                {{ category.name }}
               </option>
             </select>
           </div>
@@ -42,7 +28,37 @@
 </template>
 
 <script>
-export default {}
+import { required } from 'vuelidate/lib/validators'
+
+export default {
+  data() {
+    return {
+      form: {
+        category: 'default'
+      }
+    }
+  },
+  validations: {
+    form: {
+      category: {
+        required
+      }
+    }
+  },
+  computed: {
+    categories() {
+      return this.$store.state.category.items
+    },
+    isValid() {
+      return !this.$v.$invalid && this.form.category !== 'default'
+    }
+  },
+  methods: {
+    emitFormData() {
+      this.$emit('stepUpdated', { data: this.form, isValid: this.isValid })
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

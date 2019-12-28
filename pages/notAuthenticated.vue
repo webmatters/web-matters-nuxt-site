@@ -3,8 +3,8 @@
     <ErrorView
       :title="'Please log in to view this page.'"
       :status="'401'"
-      :navigateToPage="'login'"
-      :navigateToText="'Navigate to Login Page'"
+      :navigate-to-page="'login'"
+      :navigate-to-text="'Navigate to Login Page'"
     />
   </div>
 </template>

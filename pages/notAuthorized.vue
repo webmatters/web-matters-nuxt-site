@@ -5,8 +5,8 @@
         'You are not authorized to view this page. Please speak with your administrator to get access rights.'
       "
       :status="'401'"
-      :navigateToPage="'/'"
-      :navigateToText="'Navigate to Home Page'"
+      :navigate-to-page="'/'"
+      :navigate-to-text="'Navigate to Home Page'"
     />
   </div>
 </template>

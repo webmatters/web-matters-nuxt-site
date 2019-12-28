@@ -13,15 +13,19 @@
       </div>
       <div class="project-create full-page-takeover-container">
         <div class="container">
-          <course-create-step1 v-if="activeStep === 1" />
-
-          <course-create-step2 v-if="activeStep === 2" />
+          <keep-alive>
+            <component
+              :is="activeComponent"
+              ref="activeComponent"
+              @stepUpdated="mergeFormData"
+            />
+          </keep-alive>
         </div>
         <div class="full-page-footer-row">
           <div class="container">
             <div class="full-page-footer-col">
               <div v-if="!isFirstStep">
-                <a @click.prevent="previousStep" class="button is-large"
+                <a class="button is-large" @click.prevent="previousStep"
                   >Previous</a
                 >
               </div>
@@ -31,15 +35,17 @@
               <div>
                 <button
                   v-if="!isLastStep"
-                  @click.prevent="nextStep"
                   class="button is-large float-right"
+                  :disabled="!canProceed"
+                  @click.prevent="nextStep"
                 >
                   Continue
                 </button>
                 <button
                   v-else
-                  @click="() => {}"
+                  :disabled="!canProceed"
                   class="button is-success is-large float-right"
+                  @click="() => {}"
                 >
                   Create Project
                 </button>
@@ -60,10 +66,18 @@ import CourseCreateStep2 from '~/components/client/CourseCreateStep2'
 export default {
   layout: 'client',
   components: { ClientHeader, CourseCreateStep1, CourseCreateStep2 },
+  fetch({ store }) {
+    return store.dispatch('category/fetchCategories')
+  },
   data() {
     return {
       activeStep: 1,
-      steps: ['CourseCreateStep1', 'CourseCreateStep2']
+      steps: ['CourseCreateStep1', 'CourseCreateStep2'],
+      canProceed: false,
+      form: {
+        title: '',
+        category: ''
+      }
     }
   },
   computed: {
@@ -78,14 +92,26 @@ export default {
     },
     progress() {
       return `${(100 / this.stepsLength) * this.activeStep}%`
+    },
+    activeComponent() {
+      return this.steps[this.activeStep - 1]
     }
   },
   methods: {
     nextStep() {
       this.activeStep++
+      this.$nextTick(
+        () => (this.canProceed = this.$refs.activeComponent.isValid)
+      )
     },
     previousStep() {
       this.activeStep--
+      this.canProceed = true
+    },
+
+    mergeFormData({ data, isValid }) {
+      this.form = { ...this.form, ...data }
+      this.canProceed = isValid
     }
   }
 }
