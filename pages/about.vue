@@ -41,8 +41,7 @@
 <script>
 export default {
   head: {
-    title:
-      'Learn more about the Web Matters difference and we we can do for you.'
+    title: 'The Web Matters difference'
   }
 }
 </script>

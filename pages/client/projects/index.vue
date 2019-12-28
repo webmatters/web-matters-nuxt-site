@@ -43,7 +43,11 @@
                   <div class="columns">
                     <div class="column is-narrow">
                       <figure class="image is-4by2 is-128x128">
-                        <img :src="project.image" />
+                        <img
+                          :src="
+                            project.image || 'https://via.placeholder.com/150'
+                          "
+                        />
                       </figure>
                     </div>
                     <div class="column">
@@ -51,11 +55,13 @@
                         {{ project.title }}
                       </p>
                       <p class="subtitle">
-                        {{ project.subtitle }}
+                        {{ project.subtitle || 'Subtitle not provided' }}
                       </p>
-                      <span :class="'is-success'" class="tag">{{
-                        project.status
-                      }}</span>
+                      <span
+                        :class="createProjectStatus(project.status)"
+                        class="tag"
+                        >{{ project.status }}</span
+                      >
                     </div>
                     <div class="column is-narrow flex-centered"></div>
                   </div>
@@ -83,6 +89,15 @@ export default {
   computed: {
     projects() {
       return this.$store.state.client.project.items
+    }
+  },
+  methods: {
+    createProjectStatus(status) {
+      if (!status) return ''
+      if (status === 'complete') return 'is-success'
+      if (status === 'active') return 'is-primary'
+      if (status === 'inactive') return 'is-warning'
+      if (status === 'canceled') return 'is-danger'
     }
   }
 }

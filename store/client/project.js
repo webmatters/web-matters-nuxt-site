@@ -9,6 +9,11 @@ export const actions = {
         return state.items
       })
       .catch(error => Promise.reject(error))
+  },
+  createProject(context, projectData) {
+    return this.$axios
+      .$post('/api/v1/projects', projectData)
+      .catch(error => Promise.reject(error))
   }
 }
 

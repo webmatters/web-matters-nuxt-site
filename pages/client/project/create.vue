@@ -2,7 +2,7 @@
   <div class="full-page-takeover-window">
     <div class="full-page-takeover-page">
       <client-header
-        :title="`Step ${activeStep} of 2`"
+        :title="`Step ${activeStep} of ${stepsLength}`"
         exit-link="/client/projects"
       />
       <div class="full-page-takeover-header-bottom-progress">
@@ -45,7 +45,7 @@
                   v-else
                   :disabled="!canProceed"
                   class="button is-success is-large float-right"
-                  @click="() => {}"
+                  @click="createProject"
                 >
                   Create Project
                 </button>
@@ -112,6 +112,16 @@ export default {
     mergeFormData({ data, isValid }) {
       this.form = { ...this.form, ...data }
       this.canProceed = isValid
+    },
+    createProject() {
+      this.$store
+        .dispatch('client/project/createProject', this.form)
+        .then(() => this.$router.push('/client/projects'))
+        .catch(() =>
+          this.$toasted.error('There was a problem. Please try again.', {
+            duration: 3000
+          })
+        )
     }
   }
 }

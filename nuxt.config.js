@@ -37,7 +37,7 @@ module.exports = {
         hid: 'og:description',
         name: 'og:description',
         content:
-          'We use the Pragmatic Marketing framework, AWS, and Lean Starup methodologies to provide on-target apps that are continuously delivered to evolve with your needs.'
+          'We use the Pragmatic Marketing framework, AWS, and Lean Startup methodologies to provide on-target apps that are continuously delivered to evolve with your needs.'
       },
       {
         hid: 'og:image',
