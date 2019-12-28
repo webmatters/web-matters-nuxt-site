@@ -9,7 +9,7 @@
             <figure class="avatar">
               <img src="~/assets/images/wm-logo.png" />
             </figure>
-            <form>
+            <form @submit.prevent="login">
               <div class="field">
                 <div class="control">
                   <input
@@ -56,7 +56,7 @@
               <button
                 @click.prevent="login"
                 :disabled="$v.form.$invalid"
-                type="button"
+                type="submit"
                 class="button is-block is-info is-large is-fullwidth"
               >
                 Login

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="site">
     <navbar />
-    <nuxt />
+    <nuxt class="site-content" />
     <app-footer />
   </div>
 </template>
@@ -36,6 +36,16 @@ html {
 *:after {
   box-sizing: border-box;
   margin: 0;
+}
+
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
 }
 
 .button--green {

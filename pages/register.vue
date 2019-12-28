@@ -9,7 +9,7 @@
             <figure class="avatar">
               <img src="~/assets/images/wm-logo.png" />
             </figure>
-            <form>
+            <form @submit.prevent="register">
               <!-- Username -->
               <div class="field">
                 <div class="control">
@@ -153,10 +153,11 @@
                   </div>
                 </div>
               </div>
+              <!-- Register Button -->
               <button
                 @click.prevent="register"
                 :disabled="$v.form.$invalid"
-                type="button"
+                type="submit"
                 class="button is-block is-info is-large is-fullwidth"
               >
                 Register
