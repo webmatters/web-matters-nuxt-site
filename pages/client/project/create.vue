@@ -25,7 +25,7 @@
           <div class="container">
             <div class="full-page-footer-col">
               <div v-if="!isFirstStep">
-                <a class="button is-large" @click.prevent="previousStep"
+                <a class="button is-large" @click.prevent="_previousStep"
                   >Previous</a
                 >
               </div>
@@ -37,7 +37,7 @@
                   v-if="!isLastStep"
                   class="button is-large float-right"
                   :disabled="!canProceed"
-                  @click.prevent="nextStep"
+                  @click.prevent="_nextStep"
                 >
                   Continue
                 </button>
@@ -62,16 +62,17 @@
 import ClientHeader from '~/components/shared/ClientHeader'
 import CourseCreateStep1 from '~/components/client/CourseCreateStep1'
 import CourseCreateStep2 from '~/components/client/CourseCreateStep2'
+import MultiComponentMixin from '@/mixins/MultiComponentMixin'
 
 export default {
   layout: 'client',
   components: { ClientHeader, CourseCreateStep1, CourseCreateStep2 },
+  mixins: [MultiComponentMixin],
   fetch({ store }) {
     return store.dispatch('category/fetchCategories')
   },
   data() {
     return {
-      activeStep: 1,
       steps: ['CourseCreateStep1', 'CourseCreateStep2'],
       canProceed: false,
       form: {
@@ -80,35 +81,17 @@ export default {
       }
     }
   },
-  computed: {
-    stepsLength() {
-      return this.steps.length
-    },
-    isLastStep() {
-      return this.activeStep === this.stepsLength
-    },
-    isFirstStep() {
-      return this.activeStep === 1
-    },
-    progress() {
-      return `${(100 / this.stepsLength) * this.activeStep}%`
-    },
-    activeComponent() {
-      return this.steps[this.activeStep - 1]
-    }
-  },
   methods: {
-    nextStep() {
-      this.activeStep++
+    _nextStep() {
+      this.nextStep()
       this.$nextTick(
         () => (this.canProceed = this.$refs.activeComponent.isValid)
       )
     },
-    previousStep() {
-      this.activeStep--
+    _previousStep() {
+      this.previousStep()
       this.canProceed = true
     },
-
     mergeFormData({ data, isValid }) {
       this.form = { ...this.form, ...data }
       this.canProceed = isValid

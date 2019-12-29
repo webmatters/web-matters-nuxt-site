@@ -5,31 +5,21 @@
     </header>
     <div class="card-content card-section">
       <form>
-        <div class="field">
-          <div class="control">
-            <input
-              class="input is-large"
-              type="text"
-              placeholder="What will students learn in your project ?"
-            />
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <input
-              class="input is-large"
-              type="text"
-              placeholder="What are the requirements for the project ?"
-            />
-          </div>
-        </div>
+        <multi-line-text-input label="What will students Learn" />
+        <multi-line-text-input label="What are the requirements" />
       </form>
     </div>
   </div>
 </template>
 
 <script>
-export default {}
+import MultiLineTextInput from '@/components/form/MultiLineTextInput.vue'
+
+export default {
+  components: {
+    MultiLineTextInput
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>

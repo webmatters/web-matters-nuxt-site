@@ -77,33 +77,31 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 import ClientHeader from '~/components/shared/ClientHeader'
 import TargetStudents from '@/components/client/TargetStudents.vue'
 import LandingPage from '@/components/client/LandingPage.vue'
 import Price from '@/components/client/Price.vue'
 import Status from '@/components/client/Status.vue'
+import MultiComponentMixin from '@/mixins/MultiComponentMixin'
 
 export default {
   layout: 'client',
   components: { ClientHeader, TargetStudents, LandingPage, Price, Status },
+  mixins: [MultiComponentMixin],
+  fetch({ store, params }) {
+    return store.dispatch('client/project/fetchProjectById', params.id)
+  },
   data() {
     return {
-      steps: ['TargetStudents', 'LandingPage', 'Price', 'Status'],
-      activeStep: 1
+      steps: ['TargetStudents', 'LandingPage', 'Price', 'Status']
     }
   },
   computed: {
-    activeComponent() {
-      return this.steps[this.activeStep - 1]
-    }
-  },
-  methods: {
-    displayStep(step) {
-      this.activeStep = step
-    },
-    activeComponentClass(step) {
-      return this.activeStep === step ? 'is-active' : ''
-    }
+    ...mapState({
+      project: ({ client }) => client.project.item
+    })
   }
 }
 </script>
