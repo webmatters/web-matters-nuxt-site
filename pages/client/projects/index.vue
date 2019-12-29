@@ -32,7 +32,7 @@
               <div class="tile is-parent is-12">
                 <!-- Navigate to project manage page -->
                 <nuxt-link
-                  :to="'#'"
+                  :to="`/client/project/${project._id}/manage`"
                   class="tile tile-overlay-container is-child box"
                 >
                   <div class="tile-overlay">
