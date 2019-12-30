@@ -6,6 +6,15 @@ export const mutations = {
   },
   setProject(state, project) {
     state.item = project
+  },
+  addLine(state, field) {
+    state.item[field].push({ value: '' })
+  },
+  removeLine(state, { field, index }) {
+    state.item[field].splice(index, 1)
+  },
+  setLineValue(state, { index, value, field }) {
+    state.item[field][index].value = value
   }
 }
 
@@ -32,5 +41,8 @@ export const actions = {
     return this.$axios
       .$post('/api/v1/projects', projectData)
       .catch(error => Promise.reject(error))
+  },
+  updateLine({ commit }, { index, value, field }) {
+    commit('setLineValue', { index, value, field })
   }
 }

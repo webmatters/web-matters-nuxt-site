@@ -3,13 +3,19 @@
     <!-- Send a label through props -->
     <label class="label">{{ label }}</label>
     <!-- Iterate lines here -->
-    <div class="multi-field field">
+    <div
+      v-for="(line, index) in lines"
+      :key="line.value"
+      class="multi-field field"
+    >
       <div class="control multi-control">
         <div class="multi-input-container">
           <input
+            :value="line.value"
             class="input is-medium multi-input"
             type="text"
-            :placeholder="'Add Something Nice (:'"
+            placeholder="Add Something Nice"
+            @input="emitUpdate($event, index)"
           />
         </div>
         <div class="btn-container">
@@ -17,7 +23,7 @@
           <button
             type="button"
             class="button is-danger multi-button"
-            @click.prevent="() => {}"
+            @click.prevent="emitRemove(index)"
           >
             Delete
           </button>
@@ -28,7 +34,7 @@
     <button
       type="button"
       class="m-b-sm button is-medium is-link is-outlined"
-      @click="() => {}"
+      @click="emitAdd"
     >
       Add an answer
     </button>
@@ -41,6 +47,22 @@ export default {
     label: {
       type: String,
       required: true
+    },
+    lines: {
+      type: Array,
+      required: true
+    }
+  },
+  methods: {
+    emitAdd() {
+      this.$emit('addClicked')
+    },
+    emitRemove(index) {
+      this.$emit('removeClicked', index)
+    },
+    emitUpdate(event, index) {
+      const { value } = event.target
+      this.$emit('valueUpdated', { value, index })
     }
   }
 }

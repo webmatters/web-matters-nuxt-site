@@ -67,7 +67,7 @@
           </div>
           <div class="column">
             <keep-alive>
-              <component :is="activeComponent" />
+              <component :is="activeComponent" :project="project" />
             </keep-alive>
           </div>
         </div>

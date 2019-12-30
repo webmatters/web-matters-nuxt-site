@@ -5,8 +5,20 @@
     </header>
     <div class="card-content card-section">
       <form>
-        <multi-line-text-input label="What will students Learn" />
-        <multi-line-text-input label="What are the requirements" />
+        <multi-line-text-input
+          label="What will students Learn"
+          :lines="project.wsl"
+          @addClicked="addLine('wsl')"
+          @removeClicked="removeLine($event, 'wsl')"
+          @valueUpdated="updateLine($event, 'wsl')"
+        />
+        <multi-line-text-input
+          label="What are the requirements"
+          :lines="project.requirements"
+          @addClicked="addLine('requirements')"
+          @removeClicked="removeLine($event, 'requirements')"
+          @valueUpdated="updateLine($event, 'requirements')"
+        />
       </form>
     </div>
   </div>
@@ -18,6 +30,23 @@ import MultiLineTextInput from '@/components/form/MultiLineTextInput.vue'
 export default {
   components: {
     MultiLineTextInput
+  },
+  props: {
+    project: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    addLine(field) {
+      this.$store.commit('client/project/addLine', field)
+    },
+    removeLine(index, field) {
+      this.$store.commit('client/project/removeLine', { field, index })
+    },
+    updateLine({ value, index }, field) {
+      this.$store.dispatch('client/project/updateLine', { field, value, index })
+    }
   }
 }
 </script>
