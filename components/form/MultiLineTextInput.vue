@@ -16,7 +16,6 @@
             :value="line.value"
             class="input is-medium multi-input"
             type="text"
-            placeholder="Add Something Nice"
             @input="emitUpdate($event, index)"
           />
         </div>

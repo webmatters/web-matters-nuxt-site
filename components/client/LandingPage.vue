@@ -12,7 +12,7 @@
               :value="project.title"
               class="input is-medium"
               type="text"
-              placeholder="Dart and Flutter From Zero to Hero "
+              placeholder="Add project title "
               @input="$event => emitProjectValue($event, 'title')"
             />
           </div>
@@ -24,7 +24,7 @@
               :value="project.subtitle"
               class="input is-medium"
               type="text"
-              placeholder="Build real mobile Application for Android and iOS."
+              placeholder="Add project subtitle"
               @input="$event => emitProjectValue($event, 'subtitle')"
             />
           </div>
@@ -36,7 +36,7 @@
               :value="project.description"
               class="textarea is-medium"
               type="text"
-              placeholder="Write something catchy about the project"
+              placeholder="Describe the project in more detail."
               @input="$event => emitProjectValue($event, 'description')"
             >
             </textarea>
@@ -72,7 +72,7 @@
                   :value="project.image"
                   class="input is-medium"
                   type="text"
-                  placeholder="https://images.unsplash.com/photo-1498837167922-ddd27525d352"
+                  placeholder="Provide URL to logo."
                   @input="$event => emitProjectValue($event, 'image')"
                 />
               </div>
@@ -86,7 +86,7 @@
               :value="project.projectLink"
               class="input is-medium"
               type="text"
-              placeholder="https://www.udemy.com/vue-js-2-the-full-guide-by-real-apps-vuex-router-node"
+              placeholder="Provide URL to website."
               @input="$event => emitProjectValue($event, 'projectLink')"
             />
           </div>
@@ -98,7 +98,7 @@
               :value="project.promoVideoLink"
               class="input is-medium"
               type="text"
-              placeholder="https://www.youtube.com/watch?v=WQ9sCAhRh1M"
+              placeholder="Contact Name - Email"
               @input="$event => emitProjectValue($event, 'promoVideoLink')"
             />
           </div>
