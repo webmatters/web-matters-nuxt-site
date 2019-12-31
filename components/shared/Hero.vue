@@ -8,9 +8,24 @@
         class="hero-img"
       ></div>
       <div class="container">
-        <h1 class="title">Modern Web Development</h1>
-        <h2 class="subtitle">Strategic | Agile | Evolved</h2>
-        <a :href="'#'" target="_" class="button is-danger">Learn More!</a>
+        <h1 class="title">Progressive Web Services</h1>
+        <h2 class="subtitle">For Intelligent Business Owners</h2>
+        <vue-typed-js
+          :strings="[
+            'Web Development',
+            'Mobile Development',
+            'UX Design',
+            'Marketing',
+            'Strategy',
+            'Managed Hosting'
+          ]"
+          :loop="true"
+        >
+          <h3 class="typing"></h3>
+        </vue-typed-js>
+        <span class=" is-inline-block p-t-lg">
+          <a :href="'#'" target="_" class="button is-danger">Learn More</a>
+        </span>
       </div>
     </div>
   </section>
@@ -23,6 +38,7 @@ export default {}
 <style lang="scss" scoped>
 .hero-body {
   position: relative;
+  height: 500px;
 }
 .hero-img {
   opacity: 0.8;

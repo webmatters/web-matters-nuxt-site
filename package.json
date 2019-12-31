@@ -37,6 +37,7 @@
     "tiptap": "^1.26.6",
     "tiptap-extensions": "^1.28.6",
     "vue-toasted": "^1.1.27",
+    "vue-typed-js": "^0.1.2",
     "vuejs-paginate": "^2.1.0",
     "vuelidate": "^0.7.4"
   },
