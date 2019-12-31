@@ -8,11 +8,11 @@
         <label class="label">Kanban Board</label>
         <div class="control">
           <input
-            :value="project.price"
+            :value="project.kanbanLink"
             class="input is-medium"
             type="text"
             placeholder="Link to Kanban Board"
-            @input="$event => emitProjectValue($event, 'price')"
+            @input="$event => emitProjectValue($event, 'kanbanLink')"
           />
         </div>
       </div>
@@ -20,11 +20,11 @@
         <label class="label">Project Files</label>
         <div class="control">
           <input
-            :value="project.discountedPrice"
+            :value="project.fileLink"
             class="input is-medium"
             type="text"
             placeholder="Link to file"
-            @input="$event => emitProjectValue($event, 'discountedPrice')"
+            @input="$event => emitProjectValue($event, 'fileLink')"
           />
         </div>
       </div>

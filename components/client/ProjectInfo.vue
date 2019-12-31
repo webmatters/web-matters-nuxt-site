@@ -83,11 +83,11 @@
           <label class="label">Client Website</label>
           <div class="control">
             <input
-              :value="project.projectLink"
+              :value="project.clientWebsite"
               class="input is-medium"
               type="text"
               placeholder="Provide URL to website."
-              @input="$event => emitProjectValue($event, 'projectLink')"
+              @input="$event => emitProjectValue($event, 'clientWebsite')"
             />
           </div>
         </div>
@@ -95,11 +95,11 @@
           <label class="label">Client Contact</label>
           <div class="control">
             <input
-              :value="project.promoVideoLink"
+              :value="project.clientContact"
               class="input is-medium"
               type="text"
               placeholder="Contact Name - Email"
-              @input="$event => emitProjectValue($event, 'promoVideoLink')"
+              @input="$event => emitProjectValue($event, 'clientContact')"
             />
           </div>
         </div>

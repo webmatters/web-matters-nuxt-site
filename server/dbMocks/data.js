@@ -82,7 +82,7 @@ module.exports = {
         image: 'https://i.udemycdn.com/course/750x422/2381802_d90c_3.jpg',
         description:
           'After dart introduction, we will start learning Flutter Framework. I will explain the basics of flutter, what widgets are, why you need widgets and how they work. We will start with simple examples which will later grow into complex components of our application. I will introduce different architectural patterns on how to manage a state of our application. We will always follow best practices introduced by the Google Flutter team.',
-        wsl: [
+        objectives: [
           {
             value: 'Learn and master Dart Programming Language'
           },
@@ -106,13 +106,11 @@ module.exports = {
             value: 'Able to run Android Studio or Xcode Simulator'
           }
         ],
-        promoVideoLink:
-          'https://a2.udemycdn.com/2019-06-16_01-03-38-b4b3369ea5ef3ab87a5c44952d66fbda/WebHD_720p.mp4?nva=20190620043055&token=0d53de33a501d22e72d76',
-        projectLink:
-          'https://www.udemy.com/dart-and-flutter-from-zero-to-hero-practical-dev-bootcamp',
-        price: 179.99,
-        discountedPrice: 9.99,
-        status: 'published',
+        clientContact: 'Filip Jerga - filip@gmail.com',
+        clientWebsite: 'http://www.dev-pal.com',
+        kanbanLink: 'http://www.trello.com',
+        fileLink: 'http://aws.amazon.com',
+        status: 'active',
         createdAt: moment().toISOString(),
         updatedAt: moment().toISOString(),
         category: category2Id,

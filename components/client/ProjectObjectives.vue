@@ -7,10 +7,10 @@
       <form>
         <multi-line-text-input
           label="Project Objectives"
-          :lines="project.wsl"
-          @addClicked="addLine('wsl')"
-          @removeClicked="removeLine($event, 'wsl')"
-          @valueUpdated="updateLine($event, 'wsl')"
+          :lines="project.objectives"
+          @addClicked="addLine('objectives')"
+          @removeClicked="removeLine($event, 'objectives')"
+          @valueUpdated="updateLine($event, 'objectives')"
         />
         <multi-line-text-input
           label="Business Requirements"

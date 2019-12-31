@@ -15,8 +15,14 @@
             <option value="active">
               Active
             </option>
-            <option value="published">
-              Published
+            <option value="inactive">
+              Inactive
+            </option>
+            <option value="complete">
+              Complete
+            </option>
+            <option value="canceled">
+              Canceled
             </option>
           </select>
         </div>

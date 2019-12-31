@@ -19,13 +19,13 @@
         <br />
       </div>
       <div class="price-box">
-        <span class="price">${{ project.price }}</span>
-        <span class="disc-price">${{ project.discountedPrice }}</span>
+        <span class="price">${{ project.kanbanLink }}</span>
+        <span class="disc-price">${{ project.fileLink }}</span>
       </div>
     </div>
     <footer class="card-footer">
       <nuxt-link :to="''" class="card-footer-item">Learn More</nuxt-link>
-      <a :href="project.projectLink" target="_" class="card-footer-item"
+      <a :href="project.clientWebsite" target="_" class="card-footer-item"
         >Enroll</a
       >
     </footer>
