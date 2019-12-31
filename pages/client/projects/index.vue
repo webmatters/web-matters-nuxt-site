@@ -37,7 +37,7 @@
                 >
                   <div class="tile-overlay">
                     <span class="tile-overlay-text">
-                      Update Project
+                      Project Detail
                     </span>
                   </div>
                   <div class="columns">

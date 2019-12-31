@@ -5,7 +5,9 @@
         <div class="full-page-takeover-header-button">
           <button
             class="button is-primary is-inverted is-medium is-outlined"
-            @click="() => {}"
+            type="button"
+            :disabled="!canUpdateProject"
+            @click="updateProject"
           >
             Save
           </button>
@@ -67,7 +69,11 @@
           </div>
           <div class="column">
             <keep-alive>
-              <component :is="activeComponent" :project="project" />
+              <component
+                :is="activeComponent"
+                :project="project"
+                @projectValueUpdated="handleProjectUpdate"
+              />
             </keep-alive>
           </div>
         </div>
@@ -90,8 +96,9 @@ export default {
   layout: 'client',
   components: { ClientHeader, TargetStudents, LandingPage, Price, Status },
   mixins: [MultiComponentMixin],
-  fetch({ store, params }) {
-    return store.dispatch('client/project/fetchProjectById', params.id)
+  async fetch({ store, params }) {
+    await store.dispatch('client/project/fetchProjectById', params.id)
+    await store.dispatch('category/fetchCategories')
   },
   data() {
     return {
@@ -100,8 +107,31 @@ export default {
   },
   computed: {
     ...mapState({
-      project: ({ client }) => client.project.item
+      project: ({ client }) => client.project.item,
+      canUpdateProject: ({ client }) => client.project.canUpdateProject
     })
+  },
+  methods: {
+    handleProjectUpdate({ value, field }) {
+      this.$store.dispatch('client/project/updateProjectValue', {
+        field,
+        value
+      })
+    },
+    updateProject() {
+      this.$store
+        .dispatch('client/project/updateProject')
+        .then(() =>
+          this.$toasted.success('Project data was successfully updated.', {
+            duration: 3000
+          })
+        )
+        .catch(() =>
+          this.$toasted.error('There was a problem. Please try again.', {
+            duration: 3000
+          })
+        )
+    }
   }
 }
 </script>

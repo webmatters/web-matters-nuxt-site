@@ -3,9 +3,11 @@
     <!-- Send a label through props -->
     <label class="label">{{ label }}</label>
     <!-- Iterate lines here -->
+    <!-- TODO: change key of this div -->
+    <!-- Generate key when receiving props here -->
     <div
       v-for="(line, index) in lines"
-      :key="line.value"
+      :key="line.index"
       class="multi-field field"
     >
       <div class="control multi-control">
@@ -36,7 +38,7 @@
       class="m-b-sm button is-medium is-link is-outlined"
       @click="emitAdd"
     >
-      Add an answer
+      Add a Line
     </button>
   </div>
 </template>
@@ -53,12 +55,31 @@ export default {
       required: true
     }
   },
+  computed: {
+    lastLine() {
+      return this.lines[this.lines.length - 1]
+    },
+    hasLines() {
+      return this.lines.length > 0
+    },
+    hasLastLineValue() {
+      return this.lastLine && this.lastLine.value !== ''
+    },
+    canDeleteLine() {
+      return this.lines.length > 1
+    },
+    canAddLine() {
+      return this.hasLines && this.hasLastLineValue
+    }
+  },
   methods: {
     emitAdd() {
-      this.$emit('addClicked')
+      if (this.canAddLine || this.lines.length === 0) {
+        this.$emit('addClicked')
+      }
     },
     emitRemove(index) {
-      this.$emit('removeClicked', index)
+      this.canDeleteLine && this.$emit('removeClicked', index)
     },
     emitUpdate(event, index) {
       const { value } = event.target

@@ -7,7 +7,10 @@
       <div class="field">
         <label class="label">Status</label>
         <div class="select is-medium">
-          <select>
+          <select
+            :value="project.status"
+            @change="$event => emitProjectValue($event, 'status')"
+          >
             <option value="default">Change Status</option>
             <option value="active">
               Active
@@ -23,7 +26,19 @@
 </template>
 
 <script>
-export default {}
+export default {
+  props: {
+    project: {
+      type: Object,
+      required: true
+    }
+  },
+  methods: {
+    emitProjectValue(e, field) {
+      this.$emit('projectValueUpdated', { value: e.target.value, field })
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped></style>
