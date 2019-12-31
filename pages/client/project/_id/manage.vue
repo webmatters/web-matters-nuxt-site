@@ -25,7 +25,7 @@
               </p>
               <ul class="menu-list">
                 <li>
-                  <!-- display TargetStudents -->
+                  <!-- display ProjectObjectives -->
                   <a
                     :class="activeComponentClass(1)"
                     @click.prevent="displayStep(1)"
@@ -33,7 +33,7 @@
                   </a>
                 </li>
                 <li>
-                  <!-- display LandingPage -->
+                  <!-- display Project Objectives -->
                   <a
                     :class="activeComponentClass(2)"
                     @click.prevent="displayStep(2)"
@@ -47,7 +47,7 @@
               </p>
               <ul class="menu-list">
                 <li>
-                  <!-- display Price -->
+                  <!-- display ProjectLinks -->
                   <a
                     :class="activeComponentClass(3)"
                     @click.prevent="displayStep(3)"
@@ -86,15 +86,21 @@
 import { mapState } from 'vuex'
 
 import ClientHeader from '~/components/shared/ClientHeader'
-import TargetStudents from '@/components/client/TargetStudents.vue'
-import LandingPage from '@/components/client/LandingPage.vue'
-import Price from '@/components/client/Price.vue'
-import Status from '@/components/client/Status.vue'
+import ProjectObjectives from '@/components/client/ProjectObjectives.vue'
+import ProjectInfo from '@/components/client/ProjectInfo.vue'
+import ProjectLinks from '@/components/client/ProjectLinks.vue'
+import ProjectStatus from '@/components/client/ProjectStatus.vue'
 import MultiComponentMixin from '@/mixins/MultiComponentMixin'
 
 export default {
   layout: 'client',
-  components: { ClientHeader, TargetStudents, LandingPage, Price, Status },
+  components: {
+    ClientHeader,
+    ProjectObjectives,
+    ProjectInfo,
+    ProjectLinks,
+    ProjectStatus
+  },
   mixins: [MultiComponentMixin],
   async fetch({ store, params }) {
     await store.dispatch('client/project/fetchProjectById', params.id)
@@ -102,7 +108,12 @@ export default {
   },
   data() {
     return {
-      steps: ['TargetStudents', 'LandingPage', 'Price', 'Status']
+      steps: [
+        'ProjectObjectives',
+        'ProjectInfo',
+        'ProjectLinks',
+        'ProjectStatus'
+      ]
     }
   },
   computed: {

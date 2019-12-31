@@ -5,13 +5,13 @@
     </header>
     <div class="card-content card-section">
       <div class="field">
-        <label class="label">Trello Board</label>
+        <label class="label">Kanban Board</label>
         <div class="control">
           <input
             :value="project.price"
             class="input is-medium"
             type="text"
-            placeholder="179.99"
+            placeholder="Link to Kanban Board"
             @input="$event => emitProjectValue($event, 'price')"
           />
         </div>
@@ -23,7 +23,7 @@
             :value="project.discountedPrice"
             class="input is-medium"
             type="text"
-            placeholder="9.99"
+            placeholder="Link to file"
             @input="$event => emitProjectValue($event, 'discountedPrice')"
           />
         </div>
