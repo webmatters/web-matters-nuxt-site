@@ -1,12 +1,12 @@
 <template>
   <div class="card manage-card">
     <header class="card-header card-section">
-      <p class="card-header-title">Project Landing Page</p>
+      <p class="card-header-title">Project Details</p>
     </header>
     <div class="card-content card-section">
       <form>
         <div class="field">
-          <label class="label">Project title</label>
+          <label class="label">Project Title</label>
           <div class="control">
             <input
               :value="project.title"
@@ -18,7 +18,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Project subtitle</label>
+          <label class="label">Project Subtitle</label>
           <div class="control">
             <input
               :value="project.subtitle"
@@ -30,7 +30,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Project description</label>
+          <label class="label">Project Description</label>
           <div class="control">
             <textarea
               :value="project.description"
@@ -59,7 +59,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Project Image</label>
+          <label class="label">Client Logo</label>
           <div class="columns">
             <div class="column">
               <figure class="image is-4by2">
@@ -80,7 +80,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Project Link</label>
+          <label class="label">Client Website</label>
           <div class="control">
             <input
               :value="project.projectLink"
@@ -92,7 +92,7 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Project Video Link</label>
+          <label class="label">Client Contact</label>
           <div class="control">
             <input
               :value="project.promoVideoLink"

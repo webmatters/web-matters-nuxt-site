@@ -1,11 +1,11 @@
 <template>
   <div class="card manage-card">
     <header class="card-header card-section">
-      <p class="card-header-title">Pricing</p>
+      <p class="card-header-title">Important Links</p>
     </header>
     <div class="card-content card-section">
       <div class="field">
-        <label class="label">Price of the project</label>
+        <label class="label">Trello Board</label>
         <div class="control">
           <input
             :value="project.price"
@@ -17,7 +17,7 @@
         </div>
       </div>
       <div class="field">
-        <label class="label">Discounted Price for the project</label>
+        <label class="label">Project Files</label>
         <div class="control">
           <input
             :value="project.discountedPrice"

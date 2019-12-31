@@ -1,19 +1,19 @@
 <template>
   <div class="card manage-card">
     <header class="card-header card-section">
-      <p class="card-header-title">Target your Students</p>
+      <p class="card-header-title">Objectives and Requirements</p>
     </header>
     <div class="card-content card-section">
       <form>
         <multi-line-text-input
-          label="What will students Learn"
+          label="Project Objectives"
           :lines="project.wsl"
           @addClicked="addLine('wsl')"
           @removeClicked="removeLine($event, 'wsl')"
           @valueUpdated="updateLine($event, 'wsl')"
         />
         <multi-line-text-input
-          label="What are the requirements"
+          label="Business Requirements"
           :lines="project.requirements"
           @addClicked="addLine('requirements')"
           @removeClicked="removeLine($event, 'requirements')"

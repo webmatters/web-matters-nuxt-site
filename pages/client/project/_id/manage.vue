@@ -29,7 +29,7 @@
                   <a
                     :class="activeComponentClass(1)"
                     @click.prevent="displayStep(1)"
-                    >Target Your Students
+                    >Objectives
                   </a>
                 </li>
                 <li>
@@ -38,7 +38,7 @@
                     :class="activeComponentClass(2)"
                     @click.prevent="displayStep(2)"
                   >
-                    Project Landing Page
+                    Details
                   </a>
                 </li>
               </ul>
@@ -52,7 +52,7 @@
                     :class="activeComponentClass(3)"
                     @click.prevent="displayStep(3)"
                   >
-                    Price
+                    Links
                   </a>
                 </li>
                 <li>
