@@ -1,15 +1,12 @@
 <template>
-  <nav class="navbar is-active" role="navigation" aria-label="main navigation">
+  <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
       <nuxt-link class="navbar-item" to="/">
-        <h1
-          class="brand-title is-uppercase has-text-weight-semibold has-text-grey-dark"
-        >
-          Web Matters
-        </h1>
+        <div class="brand-title is-size-2">
+          <span class="has-text-info">Web</span
+          ><span class="has-text-primary">Matters</span>
+        </div>
       </nuxt-link>
-      <!-- Adds click to open -->
-      <!-- Adds active class -->
       <a
         role="button"
         class="navbar-burger burger"
@@ -19,32 +16,48 @@
         @click="() => {}"
       >
         <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
-        <span aria-hidden="true"></span>
       </a>
     </div>
 
-    <!-- Adds active class -->
     <div id="navbarBasicExample" class="navbar-menu">
-      <div class="navbar-start">
-        <nuxt-link to="/" class="navbar-item">
-          Home
-        </nuxt-link>
-        <nuxt-link to="/instructor" class="navbar-item">
-          Services
-        </nuxt-link>
+      <div class="navbar-end">
+        <div class="navbar-item has-dropdown is-hoverable">
+          <nuxt-link to="/services/overview" class="navbar-link">
+            Services
+          </nuxt-link>
+          <div class="navbar-dropdown">
+            <nuxt-link to="/services/overview" class="navbar-item"
+              >Overview</nuxt-link
+            >
+            <nuxt-link to="/services/appDevelopment" class="navbar-item"
+              >App Development</nuxt-link
+            >
+            <nuxt-link to="/services/uxDesign" class="navbar-item"
+              >UX Design</nuxt-link
+            >
+            <nuxt-link to="/services/dataAnalysis" class="navbar-item"
+              >Data Analysis</nuxt-link
+            >
+            <nuxt-link to="/services/productStrategy" class="navbar-item"
+              >Product Strategy</nuxt-link
+            >
+            <nuxt-link to="/services/marketing" class="navbar-item"
+              >Marketing</nuxt-link
+            >
+            <nuxt-link to="/services/managedHosting" class="navbar-item"
+              >Managed Hosting</nuxt-link
+            >
+          </div>
+        </div>
         <nuxt-link to="#" class="navbar-item">
           Blog
         </nuxt-link>
-        <nuxt-link to="about" class="navbar-item">
+        <nuxt-link to="/about" class="navbar-item">
           About
         </nuxt-link>
         <nuxt-link to="/contact" class="navbar-item">
           Contact
         </nuxt-link>
-      </div>
-
-      <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
             <!-- If Authenticated -->
@@ -66,12 +79,15 @@
               </a>
             </template>
             <template v-else>
-              <nuxt-link to="/register" class="button is-primary">
+              <nuxt-link to="/contact" class="button is-rounded nav-button">
+                Get a Proposal
+              </nuxt-link>
+              <!-- <nuxt-link to="/register" class="button is-primary">
                 Sign up
               </nuxt-link>
               <nuxt-link to="/login" class="button is-light">
                 Log in
-              </nuxt-link>
+              </nuxt-link> -->
             </template>
           </div>
         </div>
@@ -108,11 +124,20 @@ export default {
 <style lang="scss" scoped>
 .brand-title {
   font-size: 35px;
+  font-weight: bold;
 }
 .navbar-brand {
   padding-right: 30px;
 }
 .avatar {
   margin-right: 5px;
+}
+
+.nav-button {
+  margin-left: 10px;
+  box-shadow: 0 5px 30px 0 rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(90deg, #9561e2, #a779e9);
+  color: #fff;
+  font-weight: bold;
 }
 </style>

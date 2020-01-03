@@ -3,13 +3,14 @@
     <div class="hero-body">
       <div
         :style="{
-          background: `url(https://images.unsplash.com/photo-1510519138101-570d1dca3d66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1631&q=80) no-repeat center center`
+          background: `linear-gradient(90deg, hsl(204, 86%, 53%) 0%, hsl(171, 100%, 41%) 100%)`
         }"
         class="hero-img"
       ></div>
       <div class="container">
         <h1 class="title">Progressive Web Services</h1>
         <h2 class="subtitle">For Intelligent Business Owners</h2>
+
         <vue-typed-js
           :strings="[
             'Web Development',
@@ -20,12 +21,17 @@
             'Managed Hosting'
           ]"
           :loop="true"
+          class="has-text-weight-semibold is-size-5"
         >
           <h3 class="typing"></h3>
         </vue-typed-js>
-        <span class=" is-inline-block p-t-lg">
-          <a :href="'#'" target="_" class="button is-danger">Learn More</a>
-        </span>
+        <div class=" is-inline-block p-t-lg">
+          <nuxt-link
+            to="/services/overview"
+            class="button is-rounded hero-button"
+            >Learn More</nuxt-link
+          >
+        </div>
       </div>
     </div>
   </section>
@@ -52,6 +58,19 @@ export default {}
   -o-background-size: cover;
   background-size: cover;
 }
+
+.hero-button {
+  background-image: linear-gradient(90deg, #1caecd, #1ccdaa);
+  box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.2);
+  transition: box-shadow 300ms ease, transform 300ms ease,
+    -webkit-transform 300ms ease;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
 .user-avatar {
   display: inline-block;
 }

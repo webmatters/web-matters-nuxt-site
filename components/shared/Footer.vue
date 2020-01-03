@@ -1,41 +1,13 @@
 <template>
-  <div class="hero-footer footer footer-custom">
+  <footer class="footer">
     <div class="container">
-      <div class="has-text-centered">
-        <span class="icon">
-          <i class="fab fa-github"></i>
-        </span>
-        <p>
-          Github
-          <a target="_" href="https://github.com/WebMatters"
-            >github.com/WebMatters</a
-          >
-        </p>
-        <div>©{{ new Date().getFullYear() }}</div>
+      <div class="content has-text-centered">
+        <span
+          >©{{ new Date().getFullYear() }} | Web Matters | All Rights
+          Reserved</span
+        >
       </div>
     </div>
-  </div>
+  </footer>
 </template>
-<style scoped lang="scss">
-/* footer */
-.icon {
-  margin-bottom: 20px;
-}
-.fa-github {
-  font-size: 45px;
-}
-.footer-custom {
-  background-color: #0d0c0d;
-  color: #fff;
-}
-.footer-custom p {
-  font-size: 1rem;
-  font-weight: 500;
-}
-.footer-custom a {
-  color: #d74436;
-}
-.footer-custom a:hover {
-  color: #e50076;
-}
-</style>
+<style scoped lang="scss"></style>

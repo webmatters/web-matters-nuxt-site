@@ -3,7 +3,7 @@
     <hero />
     <section class="section">
       <div class="container">
-        <h1 class="title">Projects</h1>
+        <!-- <h1 class="title">Projects</h1>
         <div class="columns">
           <div
             v-for="project in projects"
@@ -22,7 +22,7 @@
           <div class="column is-one-quarter">
             <blog-card />
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
   </div>
@@ -31,14 +31,14 @@
 <script>
 import { mapState } from 'vuex'
 import Hero from '@/components/shared/Hero.vue'
-import ProjectCard from '@/components/ProjectCard.vue'
-import BlogCard from '@/components/BlogCard.vue'
+// import ProjectCard from '@/components/ProjectCard.vue'
+// import BlogCard from '@/components/BlogCard.vue'
 
 export default {
   components: {
-    Hero,
-    ProjectCard,
-    BlogCard
+    Hero
+    // ProjectCard,
+    // BlogCard
   },
   async fetch({ store }) {
     await store.dispatch('project/fetchProjects')
